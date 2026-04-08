@@ -1,1 +1,1 @@
-# ds2002-final-project
+# Final Project: HTC Text Analyzer
