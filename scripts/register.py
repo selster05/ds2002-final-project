@@ -30,6 +30,6 @@ def register_urls(url_file):
 
 if __name__ == "__main__":
     if len(sys.argv) != 2:
-        print("argumetns: python register.py URL")
+        print("arguments: python register.py URL")
         sys.exit(1)
     register_urls(sys.argv[1])
