@@ -1,5 +1,6 @@
 import requests
 from pathlib import Path
+from urllib.parse import urlparse
 
 def download(url):
 
@@ -21,3 +22,34 @@ def download(url):
         file.write(response.text)
 
     return file_path
+
+def extract_source(url):
+
+    parsed = urlparse(url)
+    source = parsed.netloc.replace("www.", "")
+
+    return source
+
+def update_source(cursor, url):
+    
+    source = extract_source()
+
+    cursor.execute(
+        """
+        UPDATE text_urls
+        SET source = %s
+        WHERE url = %s
+        """,
+        (source, url)
+    )
+
+def update_storage_path(cursor, url, file_path):
+
+    cursor.execute(
+        """
+        UPDATE text_urls
+        SET storage_path = %s, status = %s
+        WHERE url = %s
+        """,
+        (str(file_path), "downloaded", url)
+)
