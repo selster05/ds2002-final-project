@@ -30,8 +30,8 @@ Project Gutenberg books using UVA HPC (Slurm) and AWS MySQL.
 | url | TEXT | `https://www.gutenberg.org/cache/epub/78413/pg78413.txt` |
 | status | VARCHAR(25) | `unprocessed`, `downloaded`, `processed`, `failed` |
 | source | TEXT | `gutenberg.org` |
-| storage_path | TEXT | `/standard/siller/ds2002/datadivers/pg78413.txt` |
-| results_path | TEXT | `/standard/siller/ds2002/datadivers/pg78413_results.csv` |
+| storage_path | TEXT | `/standard/siller/ds2002/datadivers/downloads/pg78413.txt` |
+| results_path | TEXT | `/standard/siller/ds2002/datadivers/results/pg78413_results.csv` |
 | title | TEXT | `Pride and Prejudice` |
 | author | TEXT | `Jane Austen` |
 
