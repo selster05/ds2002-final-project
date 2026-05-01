@@ -15,13 +15,13 @@ cd "$SLURM_SUBMIT_DIR"
 set -euo pipefail
 
 URL_FILE="$1"
-RESULTS_DIR="$2"
+OUT_DIR="$2"
 
 TASK_ID="${SLURM_ARRAY_TASK_ID}"
 URL=$(sed -n "${TASK_ID}p" "$URL_FILE")
 
 mkdir -p logs
-mkdir -p "$RESULTS_DIR"
+mkdir -p "$OUT_DIR"
 
 if [ -z "$URL" ]; then
     echo "No URL found for task $TASK_ID"
@@ -45,7 +45,7 @@ from scripts.download import download
 from scripts.collect_metadata import extract_gutenberg_metadata, update_metadata
 
 url = """$URL"""
-results_dir = """$RESULTS_DIR"""
+out_dir = """$OUT_DIR"""
 
 conn = mysql.connector.connect(**DB_CONFIG)
 cursor = conn.cursor(dictionary=True)
@@ -68,7 +68,7 @@ cursor.execute(
 )
 conn.commit()
 
-file_path = download(url)
+file_path = download(url, out_dir)
 
 if file_path is None:
     cursor.execute(
@@ -95,7 +95,7 @@ update_metadata(cursor, metadata, str(file_path))
 conn.commit()
 
 safe_name = os.path.basename(str(file_path)).replace(".txt", "")
-results_path = os.path.join(results_dir, safe_name + "_results.csv")
+results_path = os.path.join(out_dir, safe_name + "_results.csv")
 
 cursor.close()
 conn.close()
@@ -115,10 +115,11 @@ echo "Running process_book.py..."
 python3 scripts/process_book.py "$TEXT_PATH" "$RESULTS_PATH"
 
 python3 - <<PY
+import os
 import sys
 import mysql.connector
 
-sys.path.append("/standard/siller/ds2002/datadivers")
+sys.path.insert(0, os.environ["SLURM_SUBMIT_DIR"])
 
 from config.db_config import DB_CONFIG
 
