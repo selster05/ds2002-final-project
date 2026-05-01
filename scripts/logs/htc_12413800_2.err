@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "<stdin>", line 10, in <module>
+ModuleNotFoundError: No module named 'config'
+Could not update DB: No module named 'config'

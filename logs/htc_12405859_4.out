@@ -1,4 +1,0 @@
-Task 4 processing: https://www.gutenberg.org/cache/epub/84/pg84.txt
-TEXT_PATH=/standard/siller/ds2002/datadivers/pg84.txt
-RESULTS_PATH=/standard/siller/ds2002/datadivers/results/pg84_results.csv
-Running process_book.py...

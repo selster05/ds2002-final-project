@@ -3,3 +3,8 @@ https://www.gutenberg.org/cache/epub/1342/pg1342.txt
 https://www.gutenberg.org/cache/epub/11/pg11.txt
 https://www.gutenberg.org/cache/epub/84/pg84.txt
 https://www.gutenberg.org/cache/epub/1661/pg1661.txt
+https://www.gutenberg.org/cache/epub/345/pg345.txt
+https://www.gutenberg.org/cache/epub/18594/pg18594.txt
+https://www.gutenberg.org/cache/epub/25103/pg25103.txt
+https://www.gutenberg.org/cache/epub/25132/pg25132.txt
+

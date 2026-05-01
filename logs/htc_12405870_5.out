@@ -1,8 +1,0 @@
-Task 5 processing: https://www.gutenberg.org/cache/epub/1661/pg1661.txt
-TEXT_PATH=/standard/siller/ds2002/datadivers/pg1661.txt
-RESULTS_PATH=/standard/siller/ds2002/datadivers/results/pg1661_results.csv
-Running process_book.py...
-Total tokens (words): 108783, unique words (lemmatized): 6370
-Wrote word counts to /standard/siller/ds2002/datadivers/results/pg1661_results.csv
-Database updated to processed.
-Finished task 5
