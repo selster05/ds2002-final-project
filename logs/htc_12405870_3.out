@@ -1,0 +1,8 @@
+Task 3 processing: https://www.gutenberg.org/cache/epub/11/pg11.txt
+TEXT_PATH=/standard/siller/ds2002/datadivers/pg11.txt
+RESULTS_PATH=/standard/siller/ds2002/datadivers/results/pg11_results.csv
+Running process_book.py...
+Total tokens (words): 30230, unique words (lemmatized): 2376
+Wrote word counts to /standard/siller/ds2002/datadivers/results/pg11_results.csv
+Database updated to processed.
+Finished task 3

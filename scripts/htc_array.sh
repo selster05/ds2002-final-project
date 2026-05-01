@@ -1,4 +1,6 @@
 #!/bin/bash
+
+#SBATCH --partition=standard
 #SBATCH --job-name=htc_text_array
 #SBATCH --output=logs/htc_%A_%a.out
 #SBATCH --error=logs/htc_%A_%a.err
@@ -7,6 +9,8 @@
 #SBATCH --cpus-per-task=1
 
 # Run like: sbatch --array=1-N htc_array.sh /standard/siller/ds2002/datadivers/unprocessed_urls.txt /standard/siller/ds2002/datadivers/results
+
+cd "$SLURM_SUBMIT_DIR"
 
 set -euo pipefail
 
@@ -31,10 +35,13 @@ import os
 import sys
 import mysql.connector
 
-sys.path.append("/standard/siller/ds2002/datadivers")
+
+PROJECT_ROOT = os.environ["SLURM_SUBMIT_DIR"]
+sys.path.insert(0, PROJECT_ROOT)
+
 
 from config.db_config import DB_CONFIG
-from scripts.Download import download
+from scripts.download import download
 from scripts.collect_metadata import extract_gutenberg_metadata, update_metadata
 
 url = """$URL"""
