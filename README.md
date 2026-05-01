@@ -61,6 +61,13 @@ N=$(wc -l < /standard/siller/ds2002/datadivers/unprocessed_urls.txt)
 # Submit
 sbatch --array=1-$N scripts/htc_array.sh /standard/siller/ds2002/datadivers/unprocessed_urls.txt
 ```
+
+### 4. Look Up Results for a URL
+```
+# Prints status, metadata, and (if processed) the top lemmas from the results CSV.
+python3 scripts/query_results.py <url>
+```
+
 ---
 
 ## Repository Structure
@@ -72,13 +79,14 @@ ds2002-final-project/
 ├── data/
 │   └── urls.txt              # Input list of Project Gutenberg URLs
 ├── scripts/
-│   ├── register.py           # Registers URLs in the DB with status='unprocessed'
-│   ├── query_queue.py        # Writes unprocessed URLs to a file on HPC
+│   ├── register_urls.py      # Registers URLs in the DB with status='unprocessed'
+│   ├── query.py              # Writes unprocessed/failed URLs to a file on HPC
+│   ├── htc_array.sh          # Slurm array job: download, process, update DB per URL
 │   ├── download.py           # Downloads text + updates source/storage_path in DB
 │   ├── process_book.py       # Tokenize + lemmatize + word count (NLTK)
-│   └── collect_metadata.py   # Extract title/author from Gutenberg header
-├── DS2002 Final Ml1.pdf
-├── Milestone1.md             # This file
+│   ├── collect_metadata.py   # Extract title/author from Gutenberg header
+│   └── query_results.py      # User-facing: look up results for a URL
+├── Milestone1.pdf
 ├── LICENSE.md
 ├── README.md
 └── requirements.txt          # mysql-connector-python, requests, nltk
@@ -88,7 +96,7 @@ ds2002-final-project/
 
 - If a download fails, the URL is marked `status = 'failed'` in the DB
 - If `process_book.py` fails, the URL is marked `status = 'failed'`
-- Failed URLs are **automatically retried** on the next run of `query_unprocessed.py`
+- Failed URLs are **automatically retried** on the next run of `query.py`
 - URLs already marked `processed` are always skipped
 
 ## Requirements
