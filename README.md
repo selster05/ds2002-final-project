@@ -47,7 +47,7 @@ python3 scripts/register_urls.py path/to/urls.txt
 
 ### 2. Query the Work Queue (on HPC)
 ```bash
-python3 query.py
+python3 scripts/query.py
 ```
 This writes unprocessed and failed URLs to:
 `/standard/siller/ds2002/datadivers/unprocessed_urls.txt`
