@@ -79,6 +79,7 @@ ds2002-final-project/
 ├── data/
 │   └── urls.txt              # Input list of Project Gutenberg URLs
 ├── scripts/
+│   ├── logs                  # Stores error and output logs for slurm jobs
 │   ├── register_urls.py      # Registers URLs in the DB with status='unprocessed'
 │   ├── query.py              # Writes unprocessed/failed URLs to a file on HPC
 │   ├── htc_array.sh          # Slurm array job: download, process, update DB per URL
