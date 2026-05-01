@@ -62,6 +62,26 @@ sbatch --array=1-$N htc_array.sh \
   /standard/siller/ds2002/datadivers/unprocessed_urls.txt \
   /standard/siller/ds2002/datadivers/results
 ```
+## Repository Structure
+
+```
+ds2002-final-project/
+├── config/
+│   └── db_config.py          # MySQL connection config (reads DB_USER / DB_PASSWORD env vars)
+├── data/
+│   └── urls.txt              # Input list of Project Gutenberg URLs
+├── scripts/
+│   ├── register.py           # Registers URLs in the DB with status='unprocessed'
+│   ├── query_queue.py        # Writes unprocessed URLs to a file on HPC
+│   ├── download.py           # Downloads text + updates source/storage_path in DB
+│   ├── process_book.py       # Tokenize + lemmatize + word count (NLTK)
+│   └── collect_metadata.py   # Extract title/author from Gutenberg header
+├── DS2002 Final Ml1.pdf
+├── Milestone1.md             # This file
+├── LICENSE.md
+├── README.md
+└── requirements.txt          # mysql-connector-python, requests, nltk
+```
 
 ## Error Handling
 
