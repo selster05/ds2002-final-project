@@ -2,7 +2,7 @@ import re
 
 def extract_gutenberg_metadata(file_path):
 
-      """
+    """
         Extracts title and author from plain text file
 
         Args: path to downloaded text file on HPC
@@ -43,12 +43,12 @@ def extract_gutenberg_metadata(file_path):
 
 def update_metadata(cursor, metadata, file_path):
 
-      """
+    """
         Updates title and author fields in database
 
         Args: cursor object from mysql connector, dictionary with metadata, storage path
         
-     """
+    """
 
     title = metadata["title"]
     author = metadata["author"]
@@ -61,8 +61,3 @@ def update_metadata(cursor, metadata, file_path):
         """,
         (title, author, file_path)
     )
-
-
-
-
-    
