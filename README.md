@@ -64,6 +64,7 @@ sbatch --array=1-$N scripts/htc_array.sh /standard/siller/ds2002/datadivers/unpr
 
 ### 4. Look Up Results for a URL
 ```
+# Prints status, metadata, and (if processed) the top lemmas from the results CSV.
 python3 scripts/query_results.py <url>
 ```
 
