@@ -1,3 +1,10 @@
-mysql-connector-python
+os
+re
 requests
+pathlib
+urllib
+sys
+mysql.connector
+collections
 nltk
+subprocess
