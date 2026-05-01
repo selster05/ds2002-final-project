@@ -32,7 +32,7 @@ def extract_source(url):
 
 def update_source(cursor, url):
     
-    source = extract_source()
+    source = extract_source(url)
 
     cursor.execute(
         """
