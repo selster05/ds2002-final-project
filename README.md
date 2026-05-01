@@ -27,7 +27,7 @@ Project Gutenberg books using UVA HPC (Slurm) and AWS MySQL.
 | Field | Type | Example |
 |-------|------|---------|
 | `url` | TEXT | `https://www.gutenberg.org/cache/epub/78413/pg78413.txt` |
-| `status` | VARCHAR(25) | `unprocessed`, `processed`, `failed`, 'downloaded' |
+| `status` | VARCHAR(25) | `unprocessed`, `processed`, `failed`, `downloaded` |
 | `storage_path` | TEXT | `/standard/siller/ds2002/datadivers/results/pg78413.txt` |
 | `results_path` | TEXT | `/standard/siller/ds2002/datadivers/results/pg78413_results.csv` |
 | `source` | TEXT | `Project Gutenberg` |
