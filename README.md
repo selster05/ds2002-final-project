@@ -59,7 +59,7 @@ N=$(wc -l < /standard/siller/ds2002/datadivers/unprocessed_urls.txt)
 ```
 ```
 # Submit
-sbatch --array=1-$N htc_array.sh \
+sbatch --array=1-$N scripts/htc_array.sh \
   /standard/siller/ds2002/datadivers/unprocessed_urls.txt \
   /standard/siller/ds2002/datadivers/results
 ```
